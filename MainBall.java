@@ -6,8 +6,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
+//Inherits from the ball class, acts as the ball the user controls.
 public class MainBall extends Ball{
-  private Vector last_v;
+  private Vector last_v; //Keeps track of the last vector to calculate projected velocity
   public MainBall(int x, int y){
     super(Color.BLACK, x, y, 0, 0);
     last_v = new Vector(v.x, v.y, 0, 0);
@@ -30,7 +31,7 @@ public class MainBall extends Ball{
     g.setColor(Color.RED);
     g.setFont(new Font("SansSerit", Font.PLAIN, 25));
     if(Animation.game_active){
-      g.drawString("" + (Ball.balls.size() - 49), v.x + 50, v.y + 50);
+      g.drawString("" + (Ball.balls.size() - 49), v.x + 50, v.y + 50); //This is the score (how long the user has lasted)
     }else{
       g.drawString("Drag", v.x + 20, v.y + 50);
     }

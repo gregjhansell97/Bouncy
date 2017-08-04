@@ -15,19 +15,15 @@ public class Driver{
     Animation a = new Animation(WIDTH,HEIGHT);
     frame.add(a);
     frame.setVisible(true);
-    //Here's where you'll want to create a seperate method
-    //to run computation and continuously update, and repaint.
-
-    /*
-    *One of these timers goes off every 10 seconds to add a new ball
-    *The other one updates all the balls, and repaints
-    */
+    
+    //Timer adds a new ball every 10 seconds or so
     javax.swing.Timer level_creator  = new javax.swing.Timer(6000, new ActionListener(){
       public void actionPerformed(ActionEvent e){
         a.addBall();
       }
     });
 
+    //Timer updates all the balls and repains the window
     javax.swing.Timer clock = new javax.swing.Timer(15, new ActionListener(){
       public void actionPerformed(ActionEvent e){
         if(!Ball.hold){

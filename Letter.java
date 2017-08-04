@@ -2,6 +2,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.util.*;
 
+//This class creates letters out of LetterBall objects. When the game starts these balls become active
 public class Letter{
     protected Vector v;
     public static int width;
@@ -14,6 +15,7 @@ public class Letter{
     }
     public Letter(Color c, int x, int y, boolean[][] f){
       this.c = c;
+      //moving balls in a grid like fassion
       for(int row = 0; row < 5; row++){
         int b_x = x;
         for(int col = 0; col < 3; col++){
