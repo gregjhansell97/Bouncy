@@ -60,14 +60,7 @@ public class Ball{
                 System.exit(0);
               }
 
-              int temp_vx, temp_vy, temp_bvx, temp_bvy = 0;
-              temp_vx = v.vx;
-              temp_vy = v.vy;
-              temp_bvx = b.v.vx;
-              temp_bvy = b.v.vy;
-              //swap velocities when they collide
-              v.set_velocity(temp_bvx, temp_bvy);
-              b.v.set_velocity(temp_vx, temp_vy);
+              v.collide_with(b.v);
 
               v.tick();
               b.v.tick();
@@ -79,10 +72,14 @@ public class Ball{
               //There are collision issues:
               /*
                 going to take each ball and step them away from each other one
-                step back at a time
+                vector step back at a time
               */
               v.undo();
               b.v.undo();
+
+              Vector temp_v = new Vector(v);
+              Vector temp_bv = new Vector(b.v);
+
               v.set_velocity(1, 0); //setting velocity to one step
               if(v.x <= b.v.x){
                 v.set_velocity(-v.vx, 0); //swaps them based on position
@@ -91,7 +88,7 @@ public class Ball{
 
 
               int saftey = 0; //prevents an infinite loop
-              //steps them back until they're no long collided
+              //steps them away from each other until they're no longer collided
               while(saftey < 25 && b.v.distance_to(v) <= DIAMETER){
                 update_velocity(0, 0, 2000, 1100);
                 v.tick();
@@ -99,8 +96,8 @@ public class Ball{
                 b.v.tick();
                 saftey++;
               }
-              v.set_velocity(temp_bvx, temp_bvy);
-              b.v.set_velocity(temp_vx, temp_vy);
+              v.set_velocity(temp_v.vx, temp_v.vy);
+              b.v.set_velocity(temp_bv.vx, temp_bv.vy);
               return;
             }
           }
