@@ -12,13 +12,13 @@ public class Ball{
     protected Vector v;
     private Color c;
     public final static int DIAMETER = 100;
-    static public boolean hold = false;
+    //static public boolean hold = false;
 
     public Ball(){
       v = new Vector(0, 0, 0, 0);
     }
 
-    public Ball(Color c, int x, int y, int v_x, int v_y){
+    public Ball(Color c, double x, double y, double v_x, double v_y){
       v = new Vector(x, y, v_x, v_y);
       this.c = c;
       balls.add(this);
@@ -27,12 +27,12 @@ public class Ball{
     //this updates the ball on the screen specifically
     public void update(Graphics g){
       g.setColor(c);
-      g.fillOval(v.x, v.y, DIAMETER, DIAMETER);
+      g.fillOval((int)(v.x + 0.5), (int)(v.y + 0.5), DIAMETER, DIAMETER);
     }
 
-    public void tick(int length, int height){
-      handle_collisions(); //Balls colliding needs to be fixed
-      update_velocity(0, 0, length, height); //checks the boundaries to make sure no balls go out of bounds
+    public void tick(int zerox, int zeroy, int length, int height){
+      handle_ball_collisions(); //Balls colliding needs to be fixed
+      v.handle_boundary_collision(zerox, zeroy, length, height);
       v.tick(); //updates the location
     }
 
@@ -44,7 +44,7 @@ public class Ball{
       return v.x - b.v.x < DIAMETER && v.y - b.v.y < DIAMETER;
     }
 
-    private void handle_collisions(){
+    private void handle_ball_collisions(){
      //Ball.hold = true;
      int i = 0;
      for(Ball b : balls){ //goes through every ball except itself
@@ -52,16 +52,18 @@ public class Ball{
           if(near_by(b)){
             if(collision(b)){
               if(b instanceof MainBall || this instanceof MainBall){
-                //Lost game, trigger events
-                /*
-                Still need to work on reset trigger for this. NOTE
-                MUST COMPLETE Still
-                */
-                System.exit(0);
+                //Lost game
+                Animation.game_active = false;
+                balls.clear(); //removes all the balls
+                // restarts the animation (potentially not necessary)
+                Driver.remove_animation();
+                Driver.create_animation();
+                return;
+                //Animation.game_active = false;
+                //return;
+
               }
-
-              v.collide_with(b.v);
-
+              v.handle_ball_collision(b.v);
               v.tick();
               b.v.tick();
               if(b.v.distance_to(v) > DIAMETER){ //There wont be collision issues
@@ -89,8 +91,8 @@ public class Ball{
 
               int saftey = 0; //prevents an infinite loop
               //steps them away from each other until they're no longer collided
-              while(saftey < 25 && b.v.distance_to(v) <= DIAMETER){
-                update_velocity(0, 0, 2000, 1100);
+              while(saftey < 30 && b.v.distance_to(v) <= DIAMETER){
+                //update_velocity(0, 0, 2000, 1100);
                 v.tick();
                 if(b.v.distance_to(v) > DIAMETER) break;
                 b.v.tick();
@@ -102,26 +104,6 @@ public class Ball{
             }
           }
         }
-      }
-    }
-    /*
-      This function handles the balls bouncing on the walls, so that either the
-      x or the y direction is flipped based on what wall is hit.
-    */
-    protected void update_velocity(int zerox, int zeroy, int length, int height){
-      if(v.x < zerox){
-        v.set_velocity(-v.vx, v.vy);
-        v.x = zerox;
-      } else if (v.x > length - DIAMETER){
-        v.set_velocity(-v.vx, v.vy);
-        v.x = length - DIAMETER;
-      }
-      if(v.y < zeroy){
-        v.set_velocity(v.vx, -v.vy);
-        v.y = zeroy;
-      } else if (v.y > height - DIAMETER){
-        v.set_velocity(v.vx, -v.vy);
-        v.y = height - DIAMETER;
       }
     }
 }

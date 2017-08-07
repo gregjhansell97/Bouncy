@@ -16,7 +16,7 @@ public class LetterBall extends Ball{
     }
   }
   //The window size is bigger for the letterballs hence the factors infront of length and height two lines below
-  protected void update_velocity(int zerox, int zeroy, int length, int height){
-    super.update_velocity(-length*2, -height*2, length*3, height*3);
+  public void tick(int zerox, int zeroy, int length, int height){
+    super.tick(-length*2, -height*2, length*3, height*3);
   }
 }

@@ -20,10 +20,10 @@ public class MainBall extends Ball{
     v.x = x;
     v.y = y;
   }
-  public int get_velocity_x(){
+  public double get_velocity_x(){
     return v.x - last_v.x;
   }
-  public int get_velocity_y(){
+  public double get_velocity_y(){
     return v.y - last_v.y;
   }
   public void update(Graphics g){
@@ -31,9 +31,9 @@ public class MainBall extends Ball{
     g.setColor(Color.RED);
     g.setFont(new Font("SansSerit", Font.PLAIN, 25));
     if(Animation.game_active){
-      g.drawString("" + (Ball.balls.size() - 49), v.x + 50, v.y + 50); //This is the score (how long the user has lasted)
+      g.drawString("" + (Ball.balls.size() - 49), (int)(v.x + 0.5) + 50, (int)(v.y + 0.5) + 50); //This is the score (how long the user has lasted)
     }else{
-      g.drawString("Drag", v.x + 20, v.y + 50);
+      g.drawString("Drag", (int)(v.x + 0.5) + 20, (int)(v.y + 0.5) + 50);
     }
   }
 }

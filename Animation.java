@@ -68,10 +68,9 @@ public class Animation extends JPanel implements MouseMotionListener
     }
 
     public void addBall(){
-      if(!game_active) return; //Has the game started?
       double ux, uy, mag; //the unit vector and the magnitude, randomly assigned
       setBackground(get_random_color()); //Change the color of the background
-      int x, y, vx, vy; //The velocity and location that will be set into the ball
+      double x, y, vx, vy; //The velocity and location that will be set into the ball
       Color c = get_random_color();
       while(c == Color.WHITE){
         c = get_random_color();
@@ -85,8 +84,14 @@ public class Animation extends JPanel implements MouseMotionListener
       ux = vx/mag;
       uy = vy/mag;
       //places near mainball in the right direction based on unit vectors
-      x = (int)Math.round(115.0*(ux) + .5) + mb.v.x;
-      y = (int)Math.round(115.0*(uy) + .5) + mb.v.y;
+      //x = (int)Math.round(115.0*(ux) + .5) + mb.v.x;
+      //y = (int)Math.round(115.0*(uy) + .5) + mb.v.y;
+
+      x = 115.0*ux + mb.v.x;
+      y = 115.0*uy + mb.v.y;
+
+
+
       new Ball(c, x, y, vx, vy); //creates the new ball
     }
 
@@ -125,7 +130,7 @@ public class Animation extends JPanel implements MouseMotionListener
     //goes through and moves the balls based on the clock
     public void tick(){
       for(Ball b : Ball.balls){
-        b.tick(length, height);
+        b.tick(0, 0, length, height);
       }
     }
 
