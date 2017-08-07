@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-//import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -38,6 +37,7 @@ public class Driver{
 
   }
 
+//The two functions are used when restarting the game
   public static void create_animation(){
     a = new Animation(WIDTH, HEIGHT);
     frame.add(a);

@@ -3,6 +3,7 @@ import java.lang.Math;
 This class represents the motion and locatin of a ball
 */
 public class Vector{
+  //vectors get used a lot... It's way easier to have all the state variables be public
   public double x, y, vx, vy, ux, uy; //location(x, y), velecity(vx, vy), unit vector(ux, uy)
 
 
@@ -52,6 +53,7 @@ public class Vector{
     }
   }
 
+//This handle collision method was based off of the information given in the collision formulas pdf
   void handle_ball_collision(Vector v){
     Vector normal_vec = new Vector(0, 0, x - v.x, y - v.y);
     Vector tangent_vec = new Vector(0, 0, -normal_vec.vy, normal_vec.vx);

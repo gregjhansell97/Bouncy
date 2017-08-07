@@ -4,7 +4,7 @@ import java.awt.Color;
 //Inherits from the Ball class
 public class LetterBall extends Ball{
 
-  public LetterBall(Color c, int x, int y){
+  public LetterBall(Color c, double x, double y){
     super(c, x, y, 0, 0);
   }
   public void start(){

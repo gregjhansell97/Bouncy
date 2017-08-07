@@ -21,7 +21,7 @@ public class Ball{
     public Ball(Color c, double x, double y, double v_x, double v_y){
       v = new Vector(x, y, v_x, v_y);
       this.c = c;
-      balls.add(this);
+      Ball.balls.add(this);
     }
 
     //this updates the ball on the screen specifically
@@ -54,7 +54,7 @@ public class Ball{
               if(b instanceof MainBall || this instanceof MainBall){
                 //Lost game
                 Animation.game_active = false;
-                balls.clear(); //removes all the balls
+                Ball.balls.clear(); //removes all the balls;
                 // restarts the animation (potentially not necessary)
                 Driver.remove_animation();
                 Driver.create_animation();
