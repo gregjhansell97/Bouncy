@@ -11,7 +11,7 @@ public class Ball{
     public static ArrayList<Ball> balls = new ArrayList<Ball>();
     protected Vector v;
     private Color c;
-    public final static int DIAMETER = 100;
+    public final static int DIAMETER = Driver.HEIGHT/(11);
     //static public boolean hold = false;
 
     public Ball(){
