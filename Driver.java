@@ -2,9 +2,13 @@ import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Dimension;
 
 public class Driver{
-  public static final int WIDTH = 1925, HEIGHT = 1100;
+  private static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+  public static final int WIDTH = (int) dim.getWidth(),
+                          HEIGHT = (int) dim.getHeight();
   private static Animation a;
   private static JFrame frame;
   public static void main(String [] args){
@@ -14,7 +18,6 @@ public class Driver{
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     create_animation();
-
     //Timer adds a new ball every 10 seconds or so
     javax.swing.Timer level_creator  = new javax.swing.Timer(6000, new ActionListener(){
       public void actionPerformed(ActionEvent e){
