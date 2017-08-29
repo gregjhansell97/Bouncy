@@ -28,42 +28,42 @@ public class Animation extends JPanel implements MouseMotionListener
 
         //Creating the start-up letters: "bouncy"
         boolean[][] p = {{true, false, false},{true, false, false},{true, true, true},{true, false, true},{true, true, true}};
-        word.add(new Letter(Color.RED, 60, 60, p)); //b
+        word.add(new Letter(Color.RED, Driver.WIDTH/32, Driver.HEIGHT/18, p)); //b
 
         p[0][0] = false; p[0][1] = false; p[0][2] = false;
         p[1][0] = false; p[1][1] = false; p[1][2] = false;
         p[2][0] = true; p[2][1] = true; p[2][2] = true;
         p[3][0] = true; p[3][1] = false; p[3][2] = true;
         p[4][0] = true; p[4][1] = true; p[4][2] = true;
-        word.add(new Letter(Color.GREEN, 365, 60, p)); //o
+        word.add(new Letter(Color.GREEN, Driver.WIDTH/32 + (3*Ball.DIAMETER) + 5, Driver.HEIGHT/18, p)); //o
 
         p[0][0] = false; p[0][1] = false; p[0][2] = false;
         p[1][0] = false; p[1][1] = false; p[1][2] = false;
         p[2][0] = true; p[2][1] = false; p[2][2] = true;
         p[3][0] = true; p[3][1] = false; p[3][2] = true;
         p[4][0] = true; p[4][1] = true; p[4][2] = true;
-        word.add(new Letter(Color.BLUE, 670, 60, p)); //u
+        word.add(new Letter(Color.BLUE, Driver.WIDTH/32 + (6*Ball.DIAMETER) + 10, Driver.HEIGHT/18, p)); //u
 
         p[0][0] = false; p[0][1] = false; p[0][2] = false;
         p[1][0] = false; p[1][1] = false; p[1][2] = false;
         p[2][0] = true; p[2][1] = true; p[2][2] = true;
         p[3][0] = true; p[3][1] = false; p[3][2] = true;
         p[4][0] = true; p[4][1] = false; p[4][2] = true;
-        word.add(new Letter(Color.YELLOW, 975, 60, p)); //n
+        word.add(new Letter(Color.YELLOW, Driver.WIDTH/32 + (9*Ball.DIAMETER) + 15, Driver.HEIGHT/18, p)); //n
 
         p[0][0] = false; p[0][1] = false; p[0][2] = false;
         p[1][0] = false; p[1][1] = false; p[1][2] = false;
         p[2][0] = true; p[2][1] = true; p[2][2] = true;
         p[3][0] = true; p[3][1] = false; p[3][2] = false;
         p[4][0] = true; p[4][1] = true; p[4][2] = true;
-        word.add(new Letter(Color.PINK, 1280, 60, p)); //c
+        word.add(new Letter(Color.PINK, Driver.WIDTH/32 + (12*Ball.DIAMETER) + 20, Driver.HEIGHT/18, p)); //c
 
         p[0][0] = false; p[0][1] = false; p[0][2] = false;
         p[1][0] = true; p[1][1] = false; p[1][2] = true;
         p[2][0] = true; p[2][1] = true; p[2][2] = true;
         p[3][0] = false; p[3][1] = false; p[3][2] = true;
         p[4][0] = true; p[4][1] = true; p[4][2] = true;
-        word.add(new Letter(Color.ORANGE, 1585, 60, p)); //y
+        word.add(new Letter(Color.ORANGE, Driver.WIDTH/32 + (15*Ball.DIAMETER) + 25, Driver.HEIGHT/18, p)); //y
 
         mb = new MainBall(length/2 - 50, height/2 + 150); //create the main ball and center it's location
     }

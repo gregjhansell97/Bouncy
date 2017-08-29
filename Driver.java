@@ -16,6 +16,9 @@ public class Driver{
     frame.setSize(WIDTH,HEIGHT);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+    System.out.println("WIDTH: " + WIDTH + " Height:" + HEIGHT);
+
     create_animation();
     //Timer adds a new ball every 10 seconds or so
     javax.swing.Timer level_creator  = new javax.swing.Timer(7000, new ActionListener(){
