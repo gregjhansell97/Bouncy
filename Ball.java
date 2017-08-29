@@ -11,7 +11,7 @@ public class Ball{
     public static ArrayList<Ball> balls = new ArrayList<Ball>();
     protected Vector v;
     private Color c;
-    public final static int DIAMETER = Driver.HEIGHT/(11);
+    public final static int DIAMETER = Driver.WIDTH/(19);
     //static public boolean hold = false;
 
     public Ball(){
@@ -59,8 +59,6 @@ public class Ball{
                 Driver.remove_animation();
                 Driver.create_animation();
                 return;
-                //Animation.game_active = false;
-                //return;
 
               }
               v.handle_ball_collision(b.v);

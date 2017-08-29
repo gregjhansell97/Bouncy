@@ -20,20 +20,24 @@ public class MainBall extends Ball{
     v.x = x;
     v.y = y;
   }
+
   public double get_velocity_x(){
     return v.x - last_v.x;
   }
+
   public double get_velocity_y(){
     return v.y - last_v.y;
   }
+
   public void update(Graphics g){
     super.update(g);
     g.setColor(Color.RED);
     g.setFont(new Font("SansSerit", Font.PLAIN, 25));
     if(Animation.game_active){
-      g.drawString("" + (Ball.balls.size() - 49), (int)(v.x + 0.5) + 50, (int)(v.y + 0.5) + 50); //This is the score (how long the user has lasted)
+      //49 is the number of letter_balls
+      g.drawString("" + (Ball.balls.size() - 49), (int)(v.x + 0.5) + DIAMETER/2, (int)(v.y + 0.5) + DIAMETER/2); //This is the score (how long the user has lasted)
     }else{
-      g.drawString("Drag", (int)(v.x + 0.5) + 20, (int)(v.y + 0.5) + 50);
+      g.drawString("Drag", (int)(v.x + 0.5) + DIAMETER/5, (int)(v.y + 0.5) + DIAMETER/2);
     }
   }
 }

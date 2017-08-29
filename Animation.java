@@ -138,13 +138,13 @@ public class Animation extends JPanel implements MouseMotionListener
 //Mouse listener stuff:
     public void mouseMoved(MouseEvent e) {
       if(game_active){
-        mb.change_location(e.getX() - 50, e.getY() - 50); //The -50 ensures the mouse is in center of ball
+        mb.change_location(e.getX() - Ball.DIAMETER/2, e.getY() - Ball.DIAMETER/2); //The -50 ensures the mouse is in center of ball
       }
     }
 
     public void mouseDragged(MouseEvent e) {
       if(game_active){
-          mb.change_location(e.getX() - 50, e.getY() - 50);
+          mb.change_location(e.getX() - Ball.DIAMETER/2, e.getY() - Ball.DIAMETER/2);
           return;
       }
       if(e.getX() > length/2 - 50 && e.getX() < length/2 + 150 && e.getY() > height/2 + 50 && e.getY() < height/2 + 250){ //this spells out the region of the main ball
