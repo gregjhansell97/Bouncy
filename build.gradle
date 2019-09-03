@@ -1,0 +1,9 @@
+apply plugin: 'application'
+apply plugin: 'java'
+
+mainClassName = "Main"
+
+repositories {
+    mavenCentral()
+}
+

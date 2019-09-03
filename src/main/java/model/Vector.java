@@ -42,7 +42,7 @@ public class Vector{
  * @return x location of vector
  */
   public double getX() {
-	  return this.x;
+      return this.x;
   }
   
 /**
@@ -50,7 +50,7 @@ public class Vector{
  * @return y location of vector
  */
   public double getY() {
-	  return this.y;
+      return this.y;
   }
   
   /**
@@ -58,7 +58,7 @@ public class Vector{
    * @return unit vector as a new vector
    */
   public Vector getUnitVector() {
-	  return new Vector(x, y, ux, uy);
+      return new Vector(x, y, ux, uy);
   }
   
 
@@ -67,7 +67,7 @@ public class Vector{
    * @return velocity in the x direction
    */
   public double getVelocityX() {
-	  return this.vx;
+      return this.vx;
   }
   
   /**
@@ -75,7 +75,7 @@ public class Vector{
    * @return velocity in the y direction
    */
   public double getVelocityY() {
-	  return this.vy;
+      return this.vy;
   }
   
   /**
@@ -83,7 +83,7 @@ public class Vector{
    * @param x x location of vector
    */
   public void setX(double x) {
-	  this.x = x;
+      this.x = x;
   }
   
   /**
@@ -91,7 +91,7 @@ public class Vector{
    * @param y y location of vector
    */
   public void setY(double y) {
-	  this.y = y; 
+      this.y = y; 
   }
   
   /**
@@ -99,8 +99,8 @@ public class Vector{
    * @param vx x directional velocity of vector
    */
   public void setVelocityX(double vx) {
-	  //decorates setVelocity
-	  setVelocity(vx, this.vy);
+      //decorates setVelocity
+      setVelocity(vx, this.vy);
   }
   
   /**
@@ -108,8 +108,8 @@ public class Vector{
    * @param vy y directional velocity of vector
    */
   public void setVelocityY(double vy) {
-	  //decorates setVelocity
-	  setVelocity(this.vx, vy);
+      //decorates setVelocity
+      setVelocity(this.vx, vy);
   }
   
 /**
@@ -131,14 +131,14 @@ public class Vector{
    * mutator: 180 degree flip in x directional velocity
    */
   public void reverseVelocityX() {
-	  this.vx = -this.vx; 
+      this.vx = -this.vx; 
   }
   
   /**
    * mutator: 180 degree flip in y directional velocity
    */
   public void reverseVelocityY() {
-	  this.vy = -this.vy;
+      this.vy = -this.vy;
   }
 
 /**
